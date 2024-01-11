@@ -1,0 +1,31 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.scrolling-container {
+  width: 100%;
+  height: 200px; /* Adjust the height as needed */
+  overflow: hidden;
+}
+
+.scrolling-content {
+  position: absolute;
+  white-space: nowrap;
+  animation: scrollText 20s linear infinite; /* Adjust the animation duration as needed */
+}
+
+.red-text {
+  color: red;
+}
+
+@keyframes scrollText {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
