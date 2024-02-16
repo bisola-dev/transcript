@@ -118,7 +118,7 @@
                                        <th>Destination Address</th>
                                        <th>Destination email</th>
                                        <th>CGPA</th>
-                                      <th>Edit Destination</th>
+                                      <th>Edit </th>
                                       <th>Status</th>
                                       
                                       
@@ -167,17 +167,27 @@
                                          elseif($Destinationemail!="" && $studcopy==2)
                                         {echo "This Online copy will be sent to $Destinationemail";}?>
                                        </td >
+
                                        <td><?php echo $Cgpa;?></td>
-                                       <td><?php if($Destinationaddress!=""){
+
+                                       <td><?php if($Destinationaddress!="" && $Status!=1){
                                          $encodedDestadd = urlencode($Destinationaddress);
                                          $encodedId = urlencode($id);
                                          
                                           $checky="updestadd.php?destadd=$encodedDestadd&id=$encodedId";
                                           echo'<a href="'.$checky.'">
-                                          <i class="bi bi-pencil-square"> Edit</i>
+                                          <i class="bi bi-pencil-square"> Edit address </i>
                                           </a>';}
-                                          else{echo "No address to be edited";}
+
+                                          elseif($Destinationemail!="" && $Status!=1)
+                                         {$encodedDestemal = urlencode($Destinationemail);
+                                             $encodedId = urlencode($id);
+                                             $checky2="updestemal.php?destemal=$encodedDestemal&id=$encodedId";
+                                             echo'<a href="'.$checky2.'">
+                                          <i class="bi bi-pencil-square"> Edit email</i>
+                                          </a>';}
                                             ?>
+                                          
                                             </td>  
 
                                        <td><?php 
