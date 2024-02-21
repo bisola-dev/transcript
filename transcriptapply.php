@@ -227,26 +227,42 @@ if (isset($_POST['submit']) || !empty($_FILES["foto"]["name"])) {
                 </script>';
                }
 
-  
-      else {  
-   $shee=move_uploaded_file($_FILES["foto"]["tmp_name"], $targetPath); 
-   $url2="https://onlinepay.portal.yabatech.edu.ng/?v1=$data"; 
-
- $noway = sqlsrv_query($conn, "INSERT INTO [Transcript].[dbo].[Transcript_order] (amount,paymentid,remita_rrr,sessionname,destination,destinationadd,phone,locationx,namex,matricno,finalresult,cgpa) VALUES ($amount,$paymentid,$data,'$session','$schname','$schadd',$Phone,'$tty','$name','$matno','$newFileName',$fcgp)");
- echo '<script type="text/javascript">
- alert("PAY NOW, CLICK OK");
- window.location.href="'.$url2.'";
- </script>';
-} 
+               else {  
+                // Move uploaded file to target directory
+                $shee = move_uploaded_file($_FILES["foto"]["tmp_name"], $targetPath); 
+                // Construct payment URL
+                $url2 = "https://onlinepay.portal.yabatech.edu.ng/?v1=$data"; 
+            
+                // Insert data into database
+                $noway = sqlsrv_query($conn, "INSERT INTO [Transcript].[dbo].[Transcript_order] (amount,paymentid,remita_rrr,sessionname,destination,destinationadd,phone,locationx,namex,matricno,finalresult,cgpa) VALUES ($amount,$paymentid,$data,'$session','$schname','$schadd',$Phone,'$tty','$name','$matno','$newFileName',$fcgp)");
+            
+                // Check if insertion was successful
+                if ($noway === false) {
+                  // Insertion failed
+                  echo '<script type="text/javascript">
+                       alert("Incomplete Registration,Please try again");
+                          </script>';
+                   } else {
+                  $rowsAffected = sqlsrv_rows_affected($noway);
+                  
+                  if ($rowsAffected > 0) {
+                      // Insertion successful
+                      echo '<script type="text/javascript">
+                           alert("PAY NOW, CLICK OK");
+                           window.location.href="'.$url2.'";
+                           </script>';
+                  }
+              }
+              
 }
  }
    
       }
-    }  
+    }   
   }
+} 
     
-    
-    catch (Exception $e) {
+      catch (Exception $e) {
       // Handle the exception here
       echo "An error occurred: " . $e->getMessage();
   }

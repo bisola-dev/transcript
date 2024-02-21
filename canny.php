@@ -5,7 +5,7 @@ $connectionOptions = array(
     "Uid"      => "Bisola_new",
     "PWD"      => "eiu947qwbjgf@#455",
     "TrustServerCertificate"=> 'Yes',
-    "Encrypt"=>'Yes',
+    //"Encrypt"=>'Yes',
 );
 
 

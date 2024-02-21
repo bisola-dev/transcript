@@ -74,93 +74,103 @@
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Transcript Login</title>
+    <title>Transcript Management System :: Apply now</title>
     <link rel="shortcut icon" href="imgg/logoyct.png" type="image/x-icon">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
     <style>
-        body{
-			background-color: #146209; /* For browsers that do not support gradients */
-  			background-image: linear-gradient(green, lightgreen);
-		}
+        body {
+            background-color: #f8f9fa; /* Light gray background */
+        }
 
-        .logo {
-			text-align: center;
-		}
+        .logo-container {
+            text-align: center;
+            margin-bottom: 30px;
+        }
 
         .logo img {
-		max-width: 80px;
-		height: auto;
-		}
+            max-width: 200px;
+            height: auto;
+        }
 
-        .bgcolor{
-            background-color: green; /* For browsers that do not support gradients */
-  			background-image: linear-gradient(green, white);
+        .card {
+            border-radius: 15px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-header {
+            background-color: #28a745; /* Green background for card header */
+            border-radius: 15px 15px 0 0;
+        }
+
+        .card-title {
+            color: #fff; /* White text color for card title */
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .card-body {
+            padding: 30px;
+        }
+
+        .form-label {
+            color: #495057; /* Dark gray text color for form labels */
+        }
+
+        .btn-login {
+            background-color: #ffc107; /* Yellow background for login button */
+            color: #212529; /* Dark gray text color for login button */
+            border: none;
+            padding: 12px 30px;
+            font-weight: bold;
+            border-radius: 25px;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-login:hover {
+            background-color: #ffca2b; /* Lighter yellow background on hover */
         }
     </style>
 </head>
-
 <body>
-	
-    <div class="container mt-5">
-        <div class="row justify-content-center" style="min-height: 100vh;">
 
-            <div class="col-md-4">
-                <div class="mb-3 logo">
-                    <img src="imgg/yabalogo.jpg">
+<div class="container mt-5">
+    <div class="logo-container">
+        <div class="logo">
+            <img src="imgg/yabalogo.jpg" alt="Yaba College of Technology Logo">
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header text-center">
+                    <h2 class="card-title">Sign in to Transcript Portal</h2>
                 </div>
-                <div class="card">
-                    <div class="card-header bgcolor mb-3">
-						
-                        <h5 class="text-center text-white">Sign in to Transcript Portal</h5>
-                        <!-- <p class="text-center text-white">Provide your surname and matric no below</p> -->
-                    </div>
-					<form method="post" action="">	
-                    <div class="card-body">
-                             <div class="mb-4">
-                                <label for="matricNumber" class="form-label">Matric Number</label>
-                                <input type="text" class="form-control" id="matricNumber" name="ato"
-                                    placeholder="Enter your matric number">
-                               </div>
-
-							<div class="mb-4">
-                                <label for="surname" class="form-label">Surname</label>
-                                <input type="text" class="form-control" id="surname" placeholder="Enter your surname" name="surn">
-                            </div>
-
-                            <div class="d-grid">
-                                <button type="submit" name="submit"  class="btn btn-warning text-white">SIGN IN</button>
-                            </div>
-                        </form>
-                    </div>
+                <div class="card-body">
+                    <form method="post" action="">
+                        <div class="mb-4">
+                            <label for="matricNumber" class="form-label">Matric Number</label>
+                            <input type="text" class="form-control" id="matricNumber" name="ato" placeholder="Enter your matric number">
+                        </div>
+                        <div class="mb-4">
+                            <label for="surname" class="form-label">Surname</label>
+                            <input type="text" class="form-control" id="surname" name="surn" placeholder="Enter your surname">
+                        </div>
+                        <div class="d-grid">
+                            <button type="submit" name="submit" class="btn btn-login">SIGN IN</button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
     </div>
+</div>
 
-    <!-- Bootstrap JS (Make sure to include the required Popper.js and Bootstrap JS dependencies) -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-		
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
-
-</html>
-
-		<!-- /Main Wrapper -->
-		
-		<!-- jQuery -->
-        <script src="assets/js/jquery-3.2.1.min.js"></script>
-		
-		<!-- Bootstrap Core JS -->
-        <script src="assets/js/popper.min.js"></script>
-        <script src="assets/js/bootstrap.min.js"></script>
-		
-		<!-- Custom JS -->
-		<script src="assets/js/app.js"></script>
-		
-    </body>
-
 </html>

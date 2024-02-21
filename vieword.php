@@ -186,7 +186,6 @@
                                              echo'<a href="'.$checky2.'">
                                           <i class="bi bi-pencil-square"> Edit email</i>
                                           </a>';}
-                                          
                                             ?>
                                           
                                             </td>  

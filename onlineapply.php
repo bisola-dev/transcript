@@ -241,20 +241,34 @@ $rlean = sqlsrv_fetch_array($fin, SQLSRV_FETCH_ASSOC);
                   alert("YOU ALREADY HAVE AN OPEN INVOICE , PLEASE PROCEED TO PAY OR EDIT DESTINATION")
                   window.location.href="vieword.php";
                   </script>';
-                 }
-             
+                 }    
       
-         else {
-          
-          $shee=move_uploaded_file($_FILES["foto"]["tmp_name"], $targetPath); 
-        $url2="https://onlinepay.portal.yabatech.edu.ng/?v1=$data";
-        $noway3 = sqlsrv_query($conn, "INSERT INTO [Transcript].[dbo].[Transcript_order] (amount,paymentid,remita_rrr,sessionname,phone,namex,matricno,finalresult,destemail,studcopy) VALUES
-         ($amount,$paymentid,$data,'$session',$Phone,'$name','$matno','$newFileName','$destemail',$ttp)");
-         echo '<script type="text/javascript">
-         alert("PAY NOW, CLICK OK")
-         window.location.href="'.$url2.'";
-         </script>';
-        } 
+                 else {
+                  $shee = move_uploaded_file($_FILES["foto"]["tmp_name"], $targetPath); 
+                  $url2 = "https://onlinepay.portal.yabatech.edu.ng/?v1=$data";
+              
+                  $noway3 = sqlsrv_query($conn, "INSERT INTO [Transcript].[dbo].[Transcript_order] (amount,paymentid,remita_rrr,sessionname,phone,namex,matricno,finalresult,destemail,studcopy) VALUES
+                       ($amount,$paymentid,$data,'$session',$Phone,'$name','$matno','$newFileName','$destemail',$ttp)");
+              
+                 if ($noway3 === false) {
+                // Insertion failed
+                echo '<script type="text/javascript">
+                     alert("Incomplete Registration,Please try again");
+                     </script>';
+                  } else {
+                $rowsAffected = sqlsrv_rows_affected($noway3);
+                
+                  if ($rowsAffected > 0) {
+                    // Insertion successful
+                    echo '<script type="text/javascript">
+                         alert("PAY NOW, CLICK OK");
+                         window.location.href="'.$url2.'";
+                         </script>';
+                }
+            }
+          }
+            
+              
 }
     }
     }
