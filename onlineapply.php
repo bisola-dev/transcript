@@ -265,6 +265,12 @@ $rlean = sqlsrv_fetch_array($fin, SQLSRV_FETCH_ASSOC);
                          window.location.href="'.$url2.'";
                          </script>';
                 }
+                else {
+                  // No rows affected, insertion failed
+                  echo '<script type="text/javascript">
+                  alert("Incomplete Registration,Please try again");
+                       </script>';
+              }
             }
           }
             

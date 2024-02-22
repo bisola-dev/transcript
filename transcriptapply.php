@@ -252,6 +252,12 @@ if (isset($_POST['submit']) || !empty($_FILES["foto"]["name"])) {
                            window.location.href="'.$url2.'";
                            </script>';
                   }
+                  else {
+                    // No rows affected, insertion failed
+                    echo '<script type="text/javascript">
+                    alert("Incomplete Registration,Please try again");
+                         </script>';
+                }
               }
               
 }
