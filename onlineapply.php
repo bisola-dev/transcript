@@ -245,7 +245,7 @@ $rlean = sqlsrv_fetch_array($fin, SQLSRV_FETCH_ASSOC);
       
                  else {
                   $shee = move_uploaded_file($_FILES["foto"]["tmp_name"], $targetPath); 
-                  $url2 = "https://onlinepay.portal.yabatech.edu.ng/?v1=$data";
+                  $url2 = "https://onlinepay.yabatech.edu.ng/?v1=$data"; 
               
                   $noway3 = sqlsrv_query($conn, "INSERT INTO [Transcript].[dbo].[Transcript_order] (amount,paymentid,remita_rrr,sessionname,phone,namex,matricno,finalresult,destemail,studcopy) VALUES
                        ($amount,$paymentid,$data,'$session',$Phone,'$name','$matno','$newFileName','$destemail',$ttp)");

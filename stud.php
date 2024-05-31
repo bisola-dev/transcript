@@ -1,5 +1,5 @@
 <?php
-$serverName        = "213.171.204.36";
+$serverName        = "77.68.16.90";
 $connectionOptions = array(
     "Database" => "student",
     "Uid"      => "Bisola_new",

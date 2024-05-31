@@ -159,7 +159,7 @@ if($rlean >= 1) {
 
 
       else {  
-        $url2="https://onlinepay.portal.yabatech.edu.ng/?v1=$data";
+        $url2 = "https://onlinepay.yabatech.edu.ng/?v1=$data"; 
         $noway3 = sqlsrv_query($conn, "INSERT INTO [Transcript].[dbo].[Transcript_order] (amount,paymentid,remita_rrr,sessionname,phone,namex,matricno,destemail,studcopy) VALUES
          ($amount,$paymentid,$data,'$session',$Phone,'$name','$matno','$destemail',$ttp)");
          echo '<script type="text/javascript">

@@ -225,13 +225,16 @@ if (isset($_POST['submit']) || !empty($_FILES["foto"]["name"])) {
                 alert("YOU ALREADY HAVE AN OPEN INVOICE , PLEASE PROCEED TO PAY OR EDIT DESTINATION");
                 window.location.href="vieword.php";
                 </script>';
+
+              
                }
+            
 
                else {  
                 // Move uploaded file to target directory
                 $shee = move_uploaded_file($_FILES["foto"]["tmp_name"], $targetPath); 
-                // Construct payment URL
-                $url2 = "https://onlinepay.portal.yabatech.edu.ng/?v1=$data"; 
+                // Construct payment URL  
+                $url2 = "https://onlinepay.yabatech.edu.ng/?v1=$data"; 
             
                 // Insert data into database
                 $noway = sqlsrv_query($conn, "INSERT INTO [Transcript].[dbo].[Transcript_order] (amount,paymentid,remita_rrr,sessionname,destination,destinationadd,phone,locationx,namex,matricno,finalresult,cgpa) VALUES ($amount,$paymentid,$data,'$session','$schname','$schadd',$Phone,'$tty','$name','$matno','$newFileName',$fcgp)");
@@ -266,7 +269,7 @@ if (isset($_POST['submit']) || !empty($_FILES["foto"]["name"])) {
       }
     }   
   }
-} 
+}
     
       catch (Exception $e) {
       // Handle the exception here
